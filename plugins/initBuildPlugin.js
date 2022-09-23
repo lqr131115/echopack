@@ -51,23 +51,6 @@ module.exports = function initPlugin(api, options) {
         filename: 'images/[name].[hash:6][ext]'
     })
 
-
-    // config.module
-    //     .rule('cjs')
-    //         .test(/\.ejs$/)
-    //         .use('ejs-loader')
-    //             .loader('ejs-loader')
-    //             .options({
-    //                 esModule: false
-    //             })
-
-    // config.module
-    //     .rule('vue')
-    //         .test(/\.vue$/)
-    //         .use('vue-loader')
-    //             .loader('vue-loader')
-
-
     // plugin
     config.plugin('HtmlWebpackPlugin')
         .use(HtmlWebpackPlugin, [{
@@ -86,20 +69,6 @@ module.exports = function initPlugin(api, options) {
     config.optimization
         .minimize(true)
         .usedExports(true)
-
-    config.optimization
-        .splitChunks({
-            chunks: 'all',
-            name: 'common',
-            minSize: 30 * 1024,
-            cacheGroups: {
-                jquery: {
-                    name: 'jquery',
-                    test: /jquery\.js/,
-                    chunks: 'all'
-                }
-            }
-        })
 
     config.watch(true)
 }
